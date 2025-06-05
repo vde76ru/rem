@@ -1,0 +1,99 @@
+<!-- Форма поиска товаров -->
+<div class="search-section mb-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title mb-3">
+                <i class="fas fa-search"></i> Поиск товаров
+            </h5>
+            
+            <div class="row g-3">
+                <!-- Поле поиска -->
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input 
+                            type="text" 
+                            class="form-control form-control-lg" 
+                            id="searchInput"
+                            placeholder="Введите артикул, название или бренд товара..."
+                            autocomplete="off"
+                            value="">
+                        <button class="btn btn-primary" type="button" id="searchButton">
+                            Найти
+                        </button>
+                    </div>
+                    <small class="text-muted">
+                        Примеры: ВВГ 3х2.5, ABB S201, выключатель автоматический
+                    </small>
+                </div>
+                
+                <!-- Быстрые фильтры -->
+                <div class="col-md-4">
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-secondary btn-sm" id="clearFiltersBtn">
+                            <i class="fas fa-times"></i> Очистить фильтры
+                        </button>
+                        <button class="btn btn-outline-info btn-sm" id="toggleAdvancedBtn">
+                            <i class="fas fa-sliders-h"></i> Расширенный поиск
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Расширенные фильтры (скрыты по умолчанию) -->
+            <div class="advanced-filters mt-3" id="advancedFilters" style="display: none;">
+                <div class="row g-2">
+                    <div class="col-md-3">
+                        <select class="form-select form-select-sm" id="brandFilter">
+                            <option value="">Все бренды</option>
+                            <option value="ABB">ABB</option>
+                            <option value="Schneider">Schneider Electric</option>
+                            <option value="IEK">IEK</option>
+                            <option value="Legrand">Legrand</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select form-select-sm" id="categoryFilter">
+                            <option value="">Все категории</option>
+                            <option value="1">Автоматические выключатели</option>
+                            <option value="2">Контакторы и реле</option>
+                            <option value="3">Кабели и провода</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select form-select-sm" id="stockFilter">
+                            <option value="">Любое наличие</option>
+                            <option value="in_stock">Только в наличии</option>
+                            <option value="on_order">Под заказ</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select form-select-sm" id="sortFilter">
+                            <option value="relevance">По релевантности</option>
+                            <option value="name">По названию</option>
+                            <option value="price_asc">Цена: по возрастанию</option>
+                            <option value="price_desc">Цена: по убыванию</option>
+                            <option value="popularity">По популярности</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Активные фильтры -->
+<div class="active-filters-section mb-3" id="activeFiltersSection" style="display: none;">
+    <div class="alert alert-info d-flex align-items-center justify-content-between">
+        <div>
+            <i class="fas fa-filter"></i>
+            <span id="activeFiltersText">Активные фильтры:</span>
+            <span id="activeFiltersList"></span>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary" id="clearAllFiltersBtn">
+            Сбросить все
+        </button>
+    </div>
+</div>
